@@ -13,4 +13,4 @@ pip install pillow
 pip install tkinter
 ```
 ### Demo
-![demo]('./demo.gif')
+![demo](demo.gif)
