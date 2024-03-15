@@ -2,6 +2,7 @@ from tkinter import *
 import cv2 
 from PIL import Image, ImageTk 
 from datetime import datetime
+from playsound import playsound
   
 vid = cv2.VideoCapture(0, cv2.CAP_DSHOW) 
 vid.set(cv2.CAP_PROP_FRAME_WIDTH, 700) 
@@ -23,6 +24,7 @@ def run_camera():
         cv2.rectangle(colorful_image, (x, y), (x + w, y + h), (255, 0, 0), 2)
     captured_image = Image.fromarray(colorful_image) 
     if(len(faces) > 0): 
+        playsound('./alarm.mp3')
         now = datetime.now()
         captured_image.save(f'./photos/{now.strftime("%d-%m-%Y %H-%M-%S,%f")}.jpg', 'JPEG')
     photo_image = ImageTk.PhotoImage(image=captured_image) 
